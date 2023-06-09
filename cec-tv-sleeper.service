@@ -1,0 +1,13 @@
+[Unit]
+Description=A node application to turn off TV connected to a Raspberry PI at a specific time of night
+
+[Service]
+Type=simple
+User=nobody
+ExecStart={your script working directory here}/app.sh
+Group=nogroup
+Restart=on-failure
+WorkingDirectory={your script working directory here}
+
+[Install]
+WantedBy=multi-user.target
