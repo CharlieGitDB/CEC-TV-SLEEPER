@@ -17,10 +17,15 @@ done
 
 # set 4:00 to be the default shut off time
 if [ -z $sleep ]; then
-  sleep=4
+  sleep=05
+else
+  if ((number < 10)); then
+    # Add a leading zero to the number
+    number="0$number"
+  fi
 fi
 
-if [ -z "$(command cec-client)"  ]; then
+if ! command -v cec-client >/dev/null 2>&1; then
   echo  ""
   echo  "You need to add cec-client before running this"
   echo  ""
@@ -45,7 +50,7 @@ while true; do
   fi
 
   hours=$(date +%H)
-  if [ $sleep == $hours ]; then
+  if [[ $sleep == $hours && $is_on ]]; then
     echo "Turning TV OFF.."
     echo "standby 0.0.0.0" | cec-client -s -d 1
   fi
