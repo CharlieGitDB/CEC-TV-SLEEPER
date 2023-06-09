@@ -49,8 +49,8 @@ while true; do
     is_on=true
   fi
 
-  hours=$(date +%H)
-  if [[ $sleep == $hours && $is_on ]]; then
+  current_hour=$(date +%H)
+  if [[ $sleep == $current_hour && $is_on ]]; then
     echo "Turning TV OFF.."
     echo "standby 0.0.0.0" | cec-client -s -d 1
   fi
