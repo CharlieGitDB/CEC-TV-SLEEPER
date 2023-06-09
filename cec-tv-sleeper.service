@@ -1,5 +1,5 @@
 [Unit]
-Description=A node application to turn off TV connected to a Raspberry PI at a specific time of night
+Description=A bash script to turn off TV connected to a Raspberry Pi at a specific time 
 
 [Service]
 User=nobody
