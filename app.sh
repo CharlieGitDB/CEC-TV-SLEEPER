@@ -17,7 +17,7 @@ done
 
 # set 4:00 to be the default shut off time
 if [ -z $sleep ]; then
-  sleep=05
+  sleep=04
 else
   if ((number < 10)); then
     # Add a leading zero to the number
