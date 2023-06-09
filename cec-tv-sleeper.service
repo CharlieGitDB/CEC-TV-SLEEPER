@@ -2,12 +2,12 @@
 Description=A node application to turn off TV connected to a Raspberry PI at a specific time of night
 
 [Service]
-Type=simple
 User=nobody
+Group=video
 ExecStart={your script working directory here}/app.sh
-Group=nogroup
-Restart=on-failure
+Restart=always
 WorkingDirectory={your script working directory here}
+Environment=PATH=/usr/bin:/usr/local/bin:/usr/bin/cec-client:/usr/sbin
 
 [Install]
 WantedBy=multi-user.target
